@@ -8,6 +8,11 @@ import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
+import { Grid, Paper } from "@mui/material";
+import Avatar from "@mui/material/Avatar";
+import Stack from "@mui/material/Stack";
+import VideoCallOutlinedIcon from "@mui/icons-material/VideoCallOutlined";
+import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -53,7 +58,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function SearchAppBar() {
   return (
-    <Box sx={{ backgroundColor: "whitesmoke" }}>
+    <Box>
       <AppBar sx={{ backgroundColor: "whitesmoke", color: "black" }}>
         <Toolbar>
           <IconButton
@@ -69,20 +74,46 @@ export default function SearchAppBar() {
             variant="h6"
             noWrap
             component="div"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" ,fontfamily:'san-serif'} }}
+            sx={{
+              flexGrow: 1,
+              display: { xs: "none", sm: "block", fontfamily: "san-serif" },
+            }}
           >
             Streamify
           </Typography>
-          <Search sx={{ borderRadius: 4, border: 1, borderColor: "gray" }}>
-            <SearchIconWrapper>
+          <Search sx={{ backgroundColor: "none" }}>
+            <SearchIconWrapper
+              sx={{
+                width: "52px",
+                height: "42px",
+                marginLeft: 58,
+                borderTopRightRadius: "50px",
+                borderBottomRightRadius: "50px",
+                float: "left",
+                backgroundColor: "#e9e8e8",
+              }}
+            >
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              placeholder="Search…"
+              placeholder="Search"
               inputProps={{ "aria-label": "search" }}
-              sx={{ width: 1000, borderRadius: 100 }}
+              sx={{
+                marginRight: 45,
+                width: 550,
+                borderRadius: 100,
+                border: 1,
+                borderColor: "gray",
+              }}
             />
           </Search>
+          <VideoCallOutlinedIcon />
+          &nbsp;&nbsp;&nbsp;
+          <NotificationsNoneIcon />
+          &nbsp;&nbsp;
+          <Stack direction="row">
+            <Avatar alt="Remy Sharp" src="public/images/img.jpg" />
+          </Stack>
         </Toolbar>
       </AppBar>
     </Box>
